@@ -41,15 +41,20 @@
     <div id="root"></div>
   </body>
   <script>
-    // this.oleg = 1;
-    // console.log("this", this);
-    // console.log("this.oleg", this.oleg);
-    // console.log("window.oleg", window.oleg);
-    var oleg = {
-      checkName: () => {
-        console.log("this", this);
+    const oleg = {
+      callName: function () {
+        const self = this;
+
+        function other() {
+          console.log("other slf", self);
+
+          self.moo = 1;
+        }
+        other();
+        console.log("self.moo", self.moo);
       },
     };
-    oleg.checkName();
+
+    oleg.callName();
   </script>
 </html>
